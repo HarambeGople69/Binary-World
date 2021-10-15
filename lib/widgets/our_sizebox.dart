@@ -7,9 +7,7 @@ class OurSizedHeight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: ScreenUtil().setSp(
-        15,
-      ),
+      height: ScreenUtil().setSp(10),
     );
   }
 }

@@ -141,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                             OurElevatedButton(
                               function: () async {
                                 if (_formKey.currentState!.validate()) {
-                                  AlertWidget().showLoading(context);
+                                  
                                   await Auth().loginAccount(
                                       _email_controller.value.text,
                                       _password_controller.value.text,

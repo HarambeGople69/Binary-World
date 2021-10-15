@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
 
 class Firestore {
@@ -16,6 +17,8 @@ class Firestore {
         ),
         "imageUrl": "",
         "name": name,
+        "bio": "",
+        "uid": uid,
       }).then((value) => print("DOne============="));
     } catch (e) {
       print(e);

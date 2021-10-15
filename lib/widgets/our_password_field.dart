@@ -7,7 +7,7 @@ class PasswordForm extends StatelessWidget {
   final FocusNode? start;
   final FocusNode? end;
   final String? title;
-  final Function(String) validator;
+  final Function(String)? validator;
   final int number;
   final Function(String)? onchange;
 
@@ -38,8 +38,7 @@ class PasswordForm extends StatelessWidget {
             FocusScope.of(context).unfocus();
           }
         },
-        onChanged: (String? value) => onchange!(value!),
-        validator: (String? value) => validator(value!),
+        validator: (String? value) => validator!(value!),
         style: TextStyle(fontSize: ScreenUtil().setSp(15)),
         controller: controller,
         obscureText: see!,

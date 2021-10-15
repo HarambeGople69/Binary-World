@@ -39,6 +39,9 @@ dependencies:
   flutter_zoom_drawer: ^2.1.1
   shared_preferences: ^2.0.8
   provider: ^6.0.1
+  file_picker: ^4.1.4
+  image_picker: ^0.8.4+2
+  flutter_native_image: ^0.0.6+1
 
 dev_dependencies:
   flutter_test:

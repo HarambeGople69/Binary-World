@@ -23,8 +23,15 @@ class UserDetail extends ChangeNotifier {
     await _prefs.setString(
         "imageUrl", snapShotsValue.docs[0].data()["imageUrl"] ?? "");
     await _prefs.setString("AddedOn", snapShotsValue.docs[0].data()["AddedOn"]);
+    await _prefs.setString("bio", snapShotsValue.docs[0].data()["bio"]);
+    await _prefs.setString("uid", snapShotsValue.docs[0].data()["uid"]);
 
     print("Authentication done saved============");
+    print(snapShotsValue.docs[0].data()["email"]);
+    print(snapShotsValue.docs[0].data()["password"]);
+    print(snapShotsValue.docs[0].data()["name"]);
+    print(snapShotsValue.docs[0].data()["imageUrl"]);
+    print(snapShotsValue.docs[0].data()["AddedOn"]);
   }
 
   removeUserAuth() async {

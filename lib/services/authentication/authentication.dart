@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:myapp/injection/appsharedpreference.dart';
 import 'package:myapp/services/firestore/firestore.dart';
+import 'package:myapp/widgets/custom_animated_alertdialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Auth {
@@ -13,7 +14,6 @@ class Auth {
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password)
           .then((value) {
-        UserDetail().saveUserAuth();
 
         Firestore().addUser(
           FirebaseAuth.instance.currentUser!.uid,
@@ -21,6 +21,8 @@ class Auth {
           password,
           name,
         );
+        UserDetail().saveUserAuth();
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             backgroundColor: Colors.green,
@@ -47,9 +49,11 @@ class Auth {
 
   loginAccount(String email, String password, BuildContext context) async {
     try {
+      AlertWidget().showLoading(context);
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password)
           .then((value) {
+        Navigator.pop(context);
         UserDetail().saveUserAuth();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
